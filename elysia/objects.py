@@ -507,7 +507,7 @@ class Text(Return):
     def _concat_text(self, objects: list[dict]):
         text = ""
         for i, obj in enumerate(objects):
-            if "text" in obj:
+            if "text" in obj and obj["text"] is not None:  # Added None check
                 spacer = ""
                 if (
                     not obj["text"].endswith(" ")
@@ -519,6 +519,7 @@ class Text(Return):
                 if (
                     i != len(objects) - 1
                     and "text" in objects[i + 1]
+                    and objects[i + 1]["text"] is not None  # Added None check
                     and objects[i + 1]["text"].startswith("* ")
                     and not obj["text"].endswith("\n")
                 ):

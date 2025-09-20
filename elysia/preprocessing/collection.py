@@ -367,9 +367,9 @@ async def _find_vectorisers(collection: CollectionAsync) -> dict[str, dict]:
 async def preprocess_async(
     collection_name: str,
     client_manager: ClientManager | None = None,
-    min_sample_size: int = 10,
+    min_sample_size: int = 4,
     max_sample_size: int | None = None,
-    num_sample_tokens: int = 30000,
+    num_sample_tokens: int = 10000,
     force: bool = False,
     percentage_correct_threshold: float = 0.3,
     settings: Settings = environment_settings,
